@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <title>All Courses</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Apply Lucida font */
+        body, h2, h3, p {
+            font-family: Lucida;
+        }
+
+        body {
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        /* Header Section */
+header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #f39c12;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-left: 20px;
+}
+
+header nav {
+  float: right;
+  margin-right: 20px;
+}
+
+header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1em;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover {
+  background-color: #f39c12;
+}
+
+/* Adjust layout for smaller screens */
+@media screen and (max-width: 768px) {
+  header .logo {
+    font-size: 1.5em;
+  }
+
+  header nav {
+    float: none;
+    text-align: center;
+    margin: 0;
+  }
+
+  header nav ul {
+    flex-direction: column;
+  }
+
+  header nav ul li {
+    margin: 10px 0;
+  }
+
+  header nav ul li a {
+    font-size: 1.2em;
+    padding: 10px 25px;
+  }
+}
+
+
+        /* Section */
+        section#all-courses {
+            padding: 40px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        section#all-courses h2 {
+            margin-bottom: 30px;
+            font-size: 36px;
+            color: #333;
+        }
+
+        /* Course Container */
+        .course-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 courses per row */
+            gap: 20px;
+            justify-items: center;
+        }
+
+        /* Course Card */
+        .course {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 20px;
+            color: #333;
+        }
+
+        .course:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Course Image */
+        .course-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        /* Course Title */
+        .course h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        /* Course Description */
+        .course p {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        /* Enroll Button */
+        .enroll-btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .enroll-btn:hover {
+            background-color: #0c5bbf;
+        }
+
+        /* Back to Home Button */
+        .view-all {
+            margin-top: 40px;
+            padding: 10px 30px;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .view-all:hover {
+            background-color: #0c5bbf;
+        }
+
+        /* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    font-family: lucida;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-info, .footer-links, .footer-social {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.footer-info h3, .footer-links h4, .footer-social h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin: 10px 0;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #f1c40f; /* Hover color */
+}
+
+.footer-social .social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social .social-icon {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-social .social-icon:hover {
+    color: #f1c40f; /* Hover color */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Logo Styling */
+.footer-logo .logo {
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-info, .footer-links, .footer-social {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <a href="images/logo.jpg" class="logo">Maxzen Training Hub</a>
+        <nav>
+            <ul>
+                
+                <li><a href="contact.php">Contact Us</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+<br>
+<br>
+    <section id="all-courses">
+    <h2>Our Courses</h2>
+
+    <div class="course-container">
+        <!-- Gen AI Course -->
+        <div class="course course-1">
+            <div class="course-image" style="background-image: url('https://d3an9kf42ylj3p.cloudfront.net/uploads/2024/03/2024-March_BH_generative_AI_SS-600x448-1.png');"></div>
+            <h3>Gen AI</h3>
+            <p>Explore the world of Generative AI and its real-world applications in various fields.</p>
+            <a href="enroll.php">
+                <button class="enroll-btn">Enroll Now</button>
+            </a>
+        </div>
+
+        <!-- Prompt Engineering Course -->
+        <div class="course course-2">
+            <div class="course-image" style="background-image: url('https://miro.medium.com/v2/resize:fit:800/1*csEMmQ-po3jOFGMFAtwKrg.png');"></div>
+            <h3>Prompt Engineering</h3>
+            <p>Master the art of crafting precise prompts to optimize AI model performance.</p>
+            <a href="enroll.php">
+                <button class="enroll-btn">Enroll Now</button>
+            </a>
+        </div>
+
+        <!-- Digital Marketing Course -->
+        <div class="course course-3">
+            <div class="course-image" style="background-image: url('https://media.istockphoto.com/id/1443560890/photo/digital-marketing-business-technology-concept-website-advertisement-email-social-media.jpg?s=612x612&w=0&k=20&c=S7d_Mof_fEsM69inW540APogoXkz-eA23XE1AIhTaBA=');"></div>
+            <h3>Digital Marketing</h3>
+            <p>Learn the strategies and tools to create successful digital marketing campaigns.</p>
+            <a href="enroll.php">
+                <button class="enroll-btn">Enroll Now</button>
+            </a>
+        </div>
+
+        <!-- AWS DevOps Course -->
+        <div class="course course-4">
+            <div class="course-image" style="background-image: url('https://cdn.shopaccino.com/igmguru/articles/AWS-DevOps-900x450.png');"></div>
+            <h3>AWS DevOps</h3>
+            <p>Gain expertise in AWS cloud services and DevOps practices for modern application deployment.</p>
+            <a href="enroll.php">
+                <button class="enroll-btn">Enroll Now</button>
+            </a>
+        </div>
+
+        <!-- Python Full Stack Course -->
+        <div class="course course-5">
+            <div class="course-image" style="background-image: url('https://www.vagdevitechnologies.com/wp-content/uploads/2024/04/python-full-stack-1.jpg');"></div>
+            <h3>Python Full Stack</h3>
+            <p>Learn to build powerful full-stack applications using Python.</p>
+            <a href="enroll.php">
+                <button class="enroll-btn">Enroll Now</button>
+            </a>
+        </div>
+
+        <!-- AI Course -->
+        <div class="course course-6">
+            <div class="course-image" style="background-image: url('https://media.istockphoto.com/id/1452604857/photo/businessman-touching-the-brain-working-of-artificial-intelligence-automation-predictive.jpg?s=612x612&w=0&k=20&c=GkAOxzduJbUKpS2-LX_l6jSKtyhdKlnPMo2ito4xpR4=');"></div>
+            <h3>AI</h3>
+            <p>Dive into the world of Artificial Intelligence and its transformative impact on industries.</p>
+            <a href="enroll.php">
+                <button class="enroll-btn">Enroll Now</button>
+            </a>
+        </div>
+    </div>
+
+    <button class="view-all" onclick="location.href='index.html'">Back to Home</button>
+</section>
+
+
+    <!-- Footer Section -->
+    <footer>
+    <div class="footer-container">
+        <div class="footer-info">
+            <h3>IT Training Hub</h3>
+            <p>Your one-stop destination for high-quality IT training and certification programs.</p>
+        </div>
+
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about-us">About Us</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-social">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <!-- Social Media Icons -->
+                <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+		<div class="footer-logo">
+            <!-- Company Logo -->
+            <img src="images/logo.jpg" alt="Company Logo" class="logo">
+        </div>
+    </div>
+
+    <!-- Footer Bottom Section -->
+    <div class="footer-bottom">
+        
+        <p>&copy; 2025 IT Training Hub. All Rights Reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
