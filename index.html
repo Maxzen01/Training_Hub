@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IT Training Hub</title>
+    <link rel="icons" href="images/logo.jpg" type="image/png">
     <link rel="stylesheet" href="styles.css">
     
     <!-- Font Awesome CDN for social icons -->
@@ -14,18 +15,41 @@
     <!-- Header Section -->
     <header>
         <a href="#" class="logo">Maxzen</a>
-        <nav>
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="navbar">
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about-us">About Us</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#advantages">Advantages</a></li>
-                <li><a href="#reviews">Reviews</a></li>
-                <li><a href="#contact-us">Contact Us</a></li>
-                
+                <li><a href="#home" onclick="closeMenu()">Home</a></li>
+                <li><a href="#about-us" onclick="closeMenu()">About Us</a></li>
+                <li><a href="#courses" onclick="closeMenu()">Courses</a></li>
+                <li><a href="#advantages" onclick="closeMenu()">Advantages</a></li>
+                <li><a href="#reviews" onclick="closeMenu()">Reviews</a></li>
+                <li><a href="#contact-us" onclick="closeMenu()">Contact Us</a></li>
             </ul>
         </nav>
     </header>
+    <script>
+        function toggleMenu() {
+            var navbar = document.getElementById("navbar");
+            var menuToggle = document.querySelector(".menu-toggle");
+    
+            navbar.classList.toggle("active");
+            menuToggle.classList.toggle("active");
+        }
+    
+        function closeMenu() {
+            var navbar = document.getElementById("navbar");
+            var menuToggle = document.querySelector(".menu-toggle");
+    
+            navbar.classList.remove("active");
+            menuToggle.classList.remove("active");
+        }
+    </script>
+    
+    
 
     <!-- Home Section -->
     <section id="home">
@@ -254,7 +278,6 @@
 
 
     <script>
-       
         document.addEventListener('DOMContentLoaded', function () {
     const counters = document.querySelectorAll('.counter');
 
